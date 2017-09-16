@@ -1,0 +1,21 @@
+<resources>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+    <string name="app_name">CITY_INFORMATION</string>
+    <string-array name="city">
+        <item>delhi</item>
+        <item>chennai</item>
+        <item>mumbai</item>
+        <item>kolkata</item>
+
+    </string-array>
+
+    <string-array name="link">
+        <item>1esqm5</item>
+        <item>17jj2d</item>
+        <item>14ond1</item>
+        <item>1gngmd</item>
+
+    </string-array>
+
+</resources>
