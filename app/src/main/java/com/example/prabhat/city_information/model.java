@@ -10,6 +10,8 @@ public class model {
     String lang;
     String popu;
     String  Area;
+    String dist;
+    String place;
 
     public void setlang(String s)
     {
@@ -41,8 +43,25 @@ public class model {
     {
         this.text=s;
     }
+
     public String getText()
     {
         return this.text;
+    }
+    public void setDist(String s)
+    {
+        this.dist=s;
+    }
+    public String getDist()
+    {
+        return this.dist;
+    }
+    public void setPlace(String s)
+    {
+        this.place=s;
+    }
+    public String getPlace()
+    {
+        return this.place;
     }
 }

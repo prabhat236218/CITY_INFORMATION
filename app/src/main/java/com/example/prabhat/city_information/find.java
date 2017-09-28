@@ -32,6 +32,14 @@ public class find extends AppCompatActivity {
     private TextView t2;
     private TextView t3;
     private TextView t4;
+    private TextView t5;
+    //private TextView t6;
+    private  String image;
+    private String popu;
+    private String story;
+    private String lang;
+    private String place;
+    private String Area;
     private model m;
     private AutoCompleteTextView AT;
     private Button search;
@@ -42,10 +50,12 @@ public class find extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_find);
-       t1=(TextView)findViewById(R.id.t1);
+        t1=(TextView)findViewById(R.id.t1);
         t2=(TextView)findViewById(R.id.t2);
         t3=(TextView)findViewById(R.id.t3);
         t4=(TextView)findViewById(R.id.t4);
+        t5=(TextView)findViewById(R.id.t5);
+       // t6=(TextView)findViewById(R.id.t6);
         img=(ImageView)findViewById(R.id.img);
               m=new model();
            map=new LinkedHashMap<>();
@@ -65,14 +75,21 @@ public class find extends AppCompatActivity {
             {
                 String c=AT.getText().toString();
                 String l=map.get(c);
+              /* String image=m.getimage();
+                String tex=m.getText();
+                String lang=m.getlang();
+                String popu=m.getpopu();
+                String area=m.getArea();
+                String place=m.getPlace();*/
                    new JSONTask().execute("https://api.myjson.com/bins/"+l);
                 Picasso.with(getApplicationContext())
-                        .load(m.getimage())
+                        .load(image)
                         .into(img);
-                t1.setText(m.getText());
-                t2.setText("Language   :  "+m.getlang());
-                t3.setText("Population  :"+m.getpopu());
-                t4.setText("Area   :"+m.getArea());
+                t1.setText(story);
+                t2.setText("Language   :  "+"\n"+lang);
+                t3.setText("Population    :"+popu);
+                t4.setText("Area   :"+Area);
+                t5.setText("Place to visit in this city  :"+ place);
                 Toast.makeText(getApplicationContext(), "please click one more time .you are one step away", Toast.LENGTH_LONG).show();
 
 
@@ -107,16 +124,18 @@ public class find extends AppCompatActivity {
                 String jsObject= sb.toString();
 
                 JSONObject jo=new JSONObject(jsObject);
-                String image=jo.getString("image");
-                String story=jo.getString("story");
-                String lang=jo.getString("Language");
-                String popu=jo.getString("Population");
-                String Area=jo.getString("Area");
-                m.setimage(image);
+                 image=jo.getString("image");
+                 story=jo.getString("story");
+                 lang=jo.getString("Language");
+                 popu=jo.getString("Population");
+                 Area=jo.getString("Area");
+                 place=jo.getString("place");
+               /* m.setimage(image);
                 m.setText(story);
                 m.setlang(lang);
                 m.setpopu(popu);
                 m.setArea(Area);
+                m.setPlace(place);
                /* Glide.with(getApplicationContext())
                        .load(image)
                        .into(img);*/
