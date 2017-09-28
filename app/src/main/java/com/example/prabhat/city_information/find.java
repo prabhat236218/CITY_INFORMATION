@@ -81,7 +81,7 @@ public class find extends AppCompatActivity {
                 String popu=m.getpopu();
                 String area=m.getArea();
                 String place=m.getPlace();*/
-                   new JSONTask().execute("https://api.myjson.com/bins/"+l);
+                   new JSONTask().execute(l);
                 Picasso.with(getApplicationContext())
                         .load(image)
                         .into(img);
@@ -90,7 +90,7 @@ public class find extends AppCompatActivity {
                 t3.setText("Population    :"+popu);
                 t4.setText("Area   :"+Area);
                 t5.setText("Place to visit in this city  :"+ place);
-                Toast.makeText(getApplicationContext(), "please click one more time .you are one step away", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getApplicationContext(), "please click one more time .you are one step away", Toast.LENGTH_LONG).show();
 
 
             }
